@@ -26,11 +26,16 @@
     <br>
 
     <nav>
-    <?php echo anchor('/', 'Home'); ?> |
-    <?php echo anchor('tasks', 'Task List'); ?> |
-    <?php echo anchor('profile', 'Profile'); ?> |
-    <?php echo anchor('about', 'About'); ?>
-</nav>
+        <?php echo anchor('/', 'Home'); ?> |
+        <?php echo anchor('tasks', 'Task List'); ?> |
+        <?php echo anchor('profile', 'Profile'); ?> |
+        <?php echo anchor('about', 'About'); ?>
+        <?php if (session()->get('isLoggedIn')): ?>
+            | <?php echo anchor('logout', 'Logout'); ?>
+        <?php else: ?>
+            | <?php echo anchor('login', 'Login'); ?>
+        <?php endif; ?>
+    </nav>
 
 </body>
 </html>
